@@ -1,0 +1,20 @@
+#contenedor {
+padding: 20px;
+margin:25px 28px 0px 20px;
+height:267px ;   
+
+
+background: white;
+font-size: 0.9em;
+box-sizing: border-box;
+}
+#img-1{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+button{
+    margin-top: 17px;
+}
+ 

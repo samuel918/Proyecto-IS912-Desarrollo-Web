@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>CodeGeek</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link href="css/main.css" rel="stylesheet">
+    <link href="fontawesome/css/all.min.css" rel="stylesheet">
+    <link rel="shortcut icon" href="img/favicon-bullseye.ico" >
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="row wrapper">
+            <aside class="col-xl-2 col-md-2  col-12 col-sm-2 mx-auto bg-dark">
+                <nav class="navbar navbar-expand-sm navbar-dark bg-dark align-items-start flex-sm-column flex-row">
+                    <a class="navbar-brand" href="#">
+                        <i class="fa fa-bullseye fa-fw fa-2x"></i>CodeGeek</a>
+                    <a href class="navbar-toggler" data-toggle="collapse" data-target=".sidebar">
+                        <span class="navbar-toggler-icon"></span>
+                    </a>
+                    <div class="collapse navbar-collapse sidebar">
+                        <ul class="flex-column navbar-nav w-100 justify-content-between">
+                            <li class="nav-item">
+                                <a class="nav-link pl-0" href="#">
+                                        <i class="fas fa-file-signature"></i>
+                                    <span class="">Archivos</span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link pl-0 dropdown-toggle text-nowrap" href="#m1" data-parent="#navbar1" data-toggle="collapse" data-target="#m1"
+                                    aria-expanded="false">
+                                    <i class="fa fa-address-card-o fa-fw"></i>
+                                    <span class=""> Link</span>
+                                </a>
+                                <div class="collapse" id="m1">
+                                    <ul class="flex-column nav">
+                                        <a class="nav-link px-0 text-truncate" href="#">Sub</a>
+                                        <a class="nav-link px-0 text-truncate" href="#">Sub longer</a>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link pl-0" href="#">
+                                    <i class="fa fa-book fa-fw"></i>
+                                    <span class="">Link</span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link pl-0" href="#">
+                                    <i class="fa fa-heart fa-fw"></i>
+                                    <span class="">Link</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </aside>
+            <main class="col bg-faded py-3">
+                
+                <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+                <div class="btn-group mr-2" role="group"  data-toggle="modal" data-target="#exampleModal" aria-label="First group">
+                    <button type="button"  id="btn-archivo" class="btn btn-success btn-sm"><i class="fas fa-plus" ></i> nuevo archivo </button>
+                   
+                 </div>
+                 <div class="btn-group mr-2" aria-label="First group">
+                        <button type="button" class="btn btn-primary btn-sm"><i class="fas fa-save"></i> Guardar</button>
+                       
+                     </div>
+                     <div class="btn-group mr-2"  aria-label="First group">
+                            <button type="button" class="btn btn-info btn-sm"><i class="fas fa-share"></i> compartir</button>
+                           
+                         </div>
+                     <div class="btn-group mr-2"  aria-label="First group">
+                            <button type="button" class="btn btn-info btn-sm"><i class="fas fa-edit"></i> Editar</button>
+                           
+                         </div>
+                         <div class="btn-group mr-2"  aria-label="First group">
+                                <button type="button" id="salir" class="btn btn-secondary btn-sm"> <i class="fas fa-sign-out-alt" ></i>Cerra Sesion</button>
+                               
+                             </div>
+                      
+                
+               
+                <div id="editor" style="height: 550px;
+                width: 98%;
+                margin-left: 0%;
+                margin-top: 20px;">            
+                </div>
+
+                    <!-- Modal -->
+                    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                   
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <form>
+
+                                            <div class="form-group">
+                                                    <label for="message-text" class="col-form-label">Nombre archivo</label>
+                                                    <input class="form-control" id="message-text"></input>
+                                            </div>
+
+                                        <div class="form-group">
+                                                <select id="mySelect" class="form-control">seleccione el lenguaje
+                                                        <option value='c++'>c++</option>
+                                                        <option value='java'>java</option>
+                                                        <option value='javascript'>javascript</option>
+                                                        <option value='php'>php</option>
+                                                        <option value='c#'>c#</option>
+                                                        <option value='html'>html</option>
+                                                        <option value='css'>css</option>
+                                                      </select>
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                    <button type="button" class="btn btn-primary" id="btn-crear" >crear archivo</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>   
+            </main>
+    <!--plugins-->
+            <script src="js/jquery.min.js"></script>
+            <script src="js/bootstrap.min.js"></script>
+            <script src="js/controlador-home.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.1/ace.js" type="text/javascript" charset="utf-8"></script>
+
+</body>
+
+</html>
