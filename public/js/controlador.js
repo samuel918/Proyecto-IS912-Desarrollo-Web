@@ -6,31 +6,30 @@ $("#btn-login").click(function(){
         method:"POST",
         dataType:"json",
         success:function(respuesta){
-           if( validarCampoVacio()){
+         
             if (respuesta.estatus ==0){
-                 console.log(respuesta);
-            window.location.href ="homepage.html";
+                
+                alert("Usuario correcto");    
+            window.location.href ="home.html";
             }else{
-               
+                alert("Credenciales incorrectas");
             console.log(respuesta);
         }
     }
-}
+
     });
 });
 
-function validarCampoVacio(){
-    if ($("#txt-email").val() ==""){
-        $("#txt-email").removeClass().addClass("is-valid");
-        $("#txt-email").addClass("is-invalid");
+function validarCampoVacio(id){
+    if (document.getElementById(id).value==""){
+        document.getElementById(id).classList.remove("is-valid");
+        document.getElementById(id).classList.add("is-invalid");
         return false;
     } else{
-        $("#txt-email").removeClass().addClass("is-invalid");
-        $("#txt-email").addClass("is-invalid");
+        document.getElementById(id).classList.remove("is-invalid");
+        document.getElementById(id).classList.add("is-valid");
         return true;
     }
 }
-
-
 
 
