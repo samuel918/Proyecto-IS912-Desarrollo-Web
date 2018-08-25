@@ -21,3 +21,8 @@ $("#btn-registro").click(function () {
     
     
     });
+
+
+
+
+    

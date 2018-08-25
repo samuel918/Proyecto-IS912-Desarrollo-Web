@@ -38,7 +38,7 @@ function verificarAutenticacion(peticion, respuesta, next) {
 
 app.post("/login", function (peticion, respuesta) {
     var conexion = mysql.createConnection(credenciales);
-    conexion.query("SELECT nombre,password,id_plan,id_usuario,correo  FROM tbl_usuarios WHERE correo=? AND sha1(password=?)",
+    conexion.query("SELECT nombre,password,id_plan,id_usuario,correo  FROM tbl_usuarios WHERE correo=? AND password=sha1(?)",
         [peticion.body.correo, peticion.body.contrasena],
         function (err, data, fields) {
             if (data.length > 0) {
@@ -68,17 +68,16 @@ app.get("/logout", function (peticion, respuesta) {
 
 app.post("/ingresar-usuario", function (req, res) {
     var conexion = mysql.createConnection(credenciales);
-    conexion.query("SELECT nombre,password,id_plan,id_usuario,correo  FROM tbl_usuarios WHERE correo=? AND sha1(password=?)",
+    conexion.query("SELECT nombre,password,id_plan,id_usuario,correo  FROM tbl_usuarios WHERE correo=? AND password=sha1(?)",
         [req.body.correo, req.body.password],
 
         function (err, data, fields) {
             if (data.length > 0) {
-                console.log(data);
                 res.send("1");
             } else {
-                var sql = 'INSERT INTO tbl_usuarios (id_usuario, nombre,apellido, correo, password,id_plan) VALUES (?,?,?,?,sha1(?),1)';
+                var sql = 'INSERT INTO tbl_usuarios ( nombre,apellido, correo, password,id_plan) VALUES (?,?,?,sha1(?),1)';
                 conexion.query(sql,
-                    [req.session.codigo,
+                    [
                     req.body.nombre,
                     req.body.apellido,
                     req.body.correo,
@@ -103,12 +102,21 @@ app.get("/ingresar-archivo",function(peticion, respuesta){
         peticion.query.nombrearchivo,
         peticion.query.extension, 
         peticion.query.contenido,
-        peticion.session.codigoUsuario], 
+        peticion.session.codigo], 
 		function(error, informacion, campos){ 
 		respuesta.send(informacion);
 	});
 });
 
+app.get("/obtener-archivos",function(peticion, respuesta){
+    var conexion = mysql.createConnection(credenciales);
+    conexion.query("SELECT nombre_archivo FROM tbl_archivo WHERE id_usuario=?",
+    [peticion.session.codigo],
+		function(error, informacion, campos){
+        respuesta.send(informacion);
+        console.log(informacion);
+	});
+});
 
 app.listen(3000);
 console.log("Servidor iniciado full");
