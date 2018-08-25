@@ -38,7 +38,7 @@ function verificarAutenticacion(peticion, respuesta, next) {
 
 app.post("/login", function (peticion, respuesta) {
     var conexion = mysql.createConnection(credenciales);
-    conexion.query("SELECT nombre,password,id_plan,id_usuario,correo  FROM tbl_usuarios WHERE correo=? AND password=?",
+    conexion.query("SELECT nombre,password,id_plan,id_usuario,correo  FROM tbl_usuarios WHERE correo=? AND sha1(password=?)",
         [peticion.body.correo, peticion.body.contrasena],
         function (err, data, fields) {
             if (data.length > 0) {
@@ -68,7 +68,7 @@ app.get("/logout", function (peticion, respuesta) {
 
 app.post("/ingresar-usuario", function (req, res) {
     var conexion = mysql.createConnection(credenciales);
-    conexion.query("SELECT nombre,password,id_plan,id_usuario,correo  FROM tbl_usuarios WHERE correo=? AND password=?",
+    conexion.query("SELECT nombre,password,id_plan,id_usuario,correo  FROM tbl_usuarios WHERE correo=? AND sha1(password=?)",
         [req.body.correo, req.body.password],
 
         function (err, data, fields) {
@@ -76,7 +76,7 @@ app.post("/ingresar-usuario", function (req, res) {
                 console.log(data);
                 res.send("1");
             } else {
-                var sql = 'INSERT INTO tbl_usuarios (id_usuario, nombre,apellido, correo, password,id_plan) VALUES (?,?,?,?,?,1)';
+                var sql = 'INSERT INTO tbl_usuarios (id_usuario, nombre,apellido, correo, password,id_plan) VALUES (?,?,?,?,sha1(?),1)';
                 conexion.query(sql,
                     [req.session.codigo,
                     req.body.nombre,
@@ -96,6 +96,19 @@ app.post("/ingresar-usuario", function (req, res) {
     );
 
 });
+app.get("/ingresar-archivo",function(peticion, respuesta){
+    var conexion = mysql.createConnection(credenciales);
+    conexion.query("INSERT INTO tbl_archivo (nombre_archivo,extension, contenido,id_usuario) VALUES (?, ?, ?,?);",
+		[
+        peticion.query.nombrearchivo,
+        peticion.query.extension, 
+        peticion.query.contenido,
+        peticion.session.codigoUsuario], 
+		function(error, informacion, campos){ 
+		respuesta.send(informacion);
+	});
+});
+
 
 app.listen(3000);
 console.log("Servidor iniciado full");

@@ -1,11 +1,11 @@
 
   
 
-  $('#mySelect').on('change', function() {
-    var value = $(this).val();
+  
     $("#btn-crear").click(function(){
         var editor = ace.edit("editor");
-        editor.setTheme("ace/theme/chrome");
+       var value = $("#lenguaje").val();
+       editor.setTheme("ace/theme/monokai");
         editor.getSession().setMode("ace/mode/"+value);
         editor.setFontSize(14);
         $("#exampleModal").modal('hide');
@@ -14,7 +14,7 @@
     });
   
   
-  });
+
 
 
 
@@ -28,20 +28,25 @@ $("#salir").click(function(){
     });
 });
 
-/*$("#guardar").click(function () {
-    //$("#editor").attr("style", "display:none");
-
-
-    var parametros = "nombrearchivo"+ $("#txt-archivo").val() +"&contenido="+ $("#correo").val()+ "&contrasena="+ $("#contrasena-login").val();
+$("#guardar").click(function () {
+    $("#editor").attr("style", "display:none");
+    $("#guardar").attr("disabled", true);
+    var editor = ace.edit("editor");
+ var myCode = editor.getSession().getValue();
+   var nombre =$("#txt-archivo").val();
+    var value = $("#lenguaje").val(); 
+    console.log("achivo: " +nombre);
+    console.log("lenguaje :" +value);
+    console.log("lenguaje :" +myCode);
         $.ajax({
-            url: "/archivo",
-            method: "POST",
-            data: parametros,
+            url: "/ingresar-archivo",
+            method: "GET",
+            data: 'nombrearchivo='+nombre +'&contenido='+ myCode +'&extension=' +value ,
             dataType: "json",
             success: function (respuesta) {
-            
+            alert("dsd");
             }
             });
     
     
-    });*/
+    });

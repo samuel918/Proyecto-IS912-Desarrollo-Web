@@ -9,7 +9,7 @@ $("#btn-login").click(function(){
          
             if (respuesta.estatus ==0){
                 
-                alert("Usuario correcto");    
+           
             window.location.href ="home.html";
             }else{
                 alert("Credenciales incorrectas");
