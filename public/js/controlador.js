@@ -1,5 +1,6 @@
 $("#btn-login").click(function(){
     console.log("Enviar al servidor: Emisor: " + $("#txt-email").val());
+    if((validar()==true)) {
     $.ajax({
         url:"/login",
         data:"correo="+$("#txt-email").val()+"&contrasena="+$("#txt-contrasena").val(),
@@ -12,24 +13,38 @@ $("#btn-login").click(function(){
            
             window.location.href ="home.html";
             }else{
-                alert("Credenciales incorrectas");
-            console.log(respuesta);
+                $.toast({
+                    afterHidden: function () {
+                
+                   },
+                  heading: 'Success',
+                  text: 'Este usuario NO esta registrado',
+                  showHideTransition: 'slide',
+                  icon: 'success',
+                  hideAfter: 1600
+
+               })     
         }
     }
 
     });
+}
 });
 
-function validarCampoVacio(id){
-    if (document.getElementById(id).value==""){
-        document.getElementById(id).classList.remove("is-valid");
-        document.getElementById(id).classList.add("is-invalid");
-        return false;
-    } else{
-        document.getElementById(id).classList.remove("is-invalid");
-        document.getElementById(id).classList.add("is-valid");
+function validar(){
+    if($("#txt-email").val() == "" ){
+        $('#prueba').html('campo correo esta vacio' +" "+ '<i class="fas fa-times"></i>');
+        $("#txt-email").focus();  
+     return false;
+   }
+ else
+     {
+        $("#prueba").html(" ");
         return true;
-    }
+       }
+
+
+    
 }
 
 

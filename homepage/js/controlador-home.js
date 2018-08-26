@@ -28,21 +28,21 @@ $("#salir").click(function () {
 });
 
 $("#guardar").click(function () {
-    $('#editor').hide();
+    
     $("#guardar").attr("disabled", true);
     $("#btn-archivo").attr("disabled",false);
     var editor = ace.edit("editor");
     var myCode = editor.getSession().getValue();
     var nombre = $("#txt-archivo").val();
     var value = $("#lenguaje").val();
-    cargarArchivos();
+  
     $.ajax({
         url: "/ingresar-archivo",
         method: "GET",
         data: 'nombrearchivo=' + nombre + '&contenido=' + myCode + '&extension=' + value,
         dataType: "json",
         success: function (respuesta) {
-           
+            cargarArchivos();
         }
     });
     

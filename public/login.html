@@ -12,7 +12,7 @@
     <link href="css/main.css" rel="stylesheet">
     <link href="css/Footer-with-social-icons.css" rel="stylesheet">
     <link href="fontawesome/css/all.min.css" rel="stylesheet">
-
+    <link rel="stylesheet" type="text/css" href="css/jquery.toast.min.css"> 
 </head>
 
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top" id="navbar-example2">
@@ -60,13 +60,12 @@
                     <h3>Iniciar Sesión !</h3>
                     <div class="row " id="form-login">
     
-                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                            <input class="form-control" type="text" placeholder="Ingrese su email" id="txt-email" value="sammu@hotmail.com">
-                            <div class="valid-feedback">Es bien</div>
-                            <div class="invalid-feedback">Esta mal</div>
+                        <div class="col-xl-10 col-lg-12 col-md-12 col-sm-12 col-12">
+                            <input class="form-control" type="text" placeholder="Ingrese su email" id="txt-email" >
+                            <div id ="prueba" style="color: red;"></div>
                         </div>
-                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                            <input class="form-control" type="password" placeholder="Password" id="txt-contrasena" value="samy">
+                        <div class="col-xl-10 col-lg-12 col-md-12 col-sm-12 col-12">
+                            <input class="form-control" type="password" placeholder="Password" id="txt-contrasena" >
     
                         </div>
                         <br>
@@ -160,7 +159,7 @@
   <script src="js/jquery.min.js"></script>
     <script src="js/controlador.js"></script>
     <script src="js/bootstrap.min.js"></script>
-    
+    <script src="js/jquery.toast.min.js"></script>
 </body>
 
 </html>

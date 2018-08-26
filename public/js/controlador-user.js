@@ -10,11 +10,31 @@ $("#btn-registro").click(function () {
             success: function (respuesta) {
                 if (respuesta==1){
                 
-                    alert("Usuario ya existe");    
-               
+                    $.toast({
+                        afterHidden: function () {
+                    
+                       },
+                      heading: 'Success',
+                      text: 'usuario ya existe',
+                      showHideTransition: 'slide',
+                      icon: 'success',
+                      hideAfter: 1200
+    
+                   })        
                 }else{
-                    alert("insert correct");
-                console.log(respuesta);
+                   
+                 $.toast({
+                    afterHidden: function () {
+                  window.location="index.html";
+                   },
+                  heading: 'Success',
+                  text: 'se ha registroado correctamente',
+                  showHideTransition: 'slide',
+                  icon: 'success',
+                  hideAfter: 1200
+
+               })        
+
             }
             }
             });
