@@ -7,7 +7,11 @@ body {
     font-family: 'Poppins', sans-serif;
     background: #fafafa;
 }
-
+main {
+    background: rgb(102, 153, 161);
+    padding-top: 40px;
+    padding-left: 20px;
+}
 p {
     font-family: 'Poppins', sans-serif;
     font-size: 1.1em;
@@ -48,7 +52,7 @@ a:focus {
 
 /* ---------------------------------------------------
     SIDEBAR STYLE
------------------------------------------------------ */
+ */
 
 .wrapper {
     display: flex;
@@ -59,8 +63,8 @@ a:focus {
 #sidebar {
     min-width: 250px;
     max-width: 250px;
-    background: rgb(115, 193, 213);
-    color: #fff;
+    background: rgb(80, 140, 155);
+    color: rgb(44, 18, 18);
     transition: all 0.3s;
 }
 
@@ -85,19 +89,19 @@ a:focus {
 
 #sidebar ul li a {
     padding: 10px;
-    font-size: 1.1em;
+    font-size: 0.8em;
     display: block;
 }
 
 #sidebar ul li a:hover {
-    color: #7386D5;
-    background: #fff;
+    color: rgb(10, 7, 7);
+    background: rgb(253, 250, 250);
 }
 
 #sidebar ul li.active>a,
 a[aria-expanded="true"] {
-    color: #fff;
-    background: #6d7fcc;
+    color: rgb(17, 15, 15);
+    background: #dedfe6;
 }
 
 a[data-toggle="collapse"] {
@@ -130,10 +134,7 @@ ul.CTAs a {
     margin-bottom: 5px;
 }
 
-a.download {
-    background: #fff;
-    color: #7386D5;
-}
+
 
 a.article,
 a.article:hover {
@@ -150,6 +151,7 @@ a.article:hover {
     padding: 20px;
     min-height: 100vh;
     transition: all 0.3s;
+    background: rgb(110, 24, 24);
 }
 
 /* ---------------------------------------------------

@@ -1,8 +1,13 @@
-* {
-  box-sizing: border-box;
-  font-family: 'Open Sans', sans-serif;
+
+@font-face{
+  font-family: 'Roboto', sans-serif;
+  src: url(fonts/Roboto-Regular.ttf);
 }
 
+*{
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+}
 .navbar{
   margin-bottom: 0px;
   border-radius: 0%;
@@ -13,19 +18,24 @@ body{
 }
 
 #section1{
-  padding:50px 0 0 0;
+  padding:40px 0 0 0;
   box-sizing: border-box;
+  margin-top: 50px;
+  margin-bottom: 50px;
 
 }
 
 #section2{
   background:  #E4EEF2;
-  padding-top:10px;
+  padding-top:40px;
+  margin-top: 30px;
+  padding-bottom: 80px;
+ 
 }
 
 #section3 {
   background: linear-gradient(160deg,#578e9c,#92b5cc);
-font-size: 28px;
+font-size: 26px;
 padding-top: 150px;
 height: 640px;
 }
@@ -175,75 +185,58 @@ margin-right: auto;
   } 
 
 
-  .rubberBand {
-    -webkit-animation-name: rubberBand;
-    animation-name: rubberBand;
+  .tada {
+    -webkit-animation-name: tada;
+    animation-name: tada;
     -webkit-animation-duration: 1s;
     animation-duration: 1s;
     -webkit-animation-fill-mode: both;
     animation-fill-mode: both;
     }
-    @-webkit-keyframes rubberBand {
+    @-webkit-keyframes tada {
     0% {
     -webkit-transform: scale3d(1, 1, 1);
     transform: scale3d(1, 1, 1);
     }
-    30% {
-    -webkit-transform: scale3d(1.25, 0.75, 1);
-    transform: scale3d(1.25, 0.75, 1);
+    10%, 20% {
+    -webkit-transform: scale3d(.9, .9, .9) rotate3d(0, 0, 1, -3deg);
+    transform: scale3d(.9, .9, .9) rotate3d(0, 0, 1, -3deg);
     }
-    40% {
-    -webkit-transform: scale3d(0.75, 1.25, 1);
-    transform: scale3d(0.75, 1.25, 1);
+    30%, 50%, 70%, 90% {
+    -webkit-transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, 3deg);
+    transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, 3deg);
     }
-    50% {
-    -webkit-transform: scale3d(1.15, 0.85, 1);
-    transform: scale3d(1.15, 0.85, 1);
-    }
-    65% {
-    -webkit-transform: scale3d(.95, 1.05, 1);
-    transform: scale3d(.95, 1.05, 1);
-    }
-    75% {
-    -webkit-transform: scale3d(1.05, .95, 1);
-    transform: scale3d(1.05, .95, 1);
+    40%, 60%, 80% {
+    -webkit-transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, -3deg);
+    transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, -3deg);
     }
     100% {
     -webkit-transform: scale3d(1, 1, 1);
     transform: scale3d(1, 1, 1);
     }
     }
-    @keyframes rubberBand {
+    @keyframes tada {
     0% {
     -webkit-transform: scale3d(1, 1, 1);
     transform: scale3d(1, 1, 1);
     }
-    30% {
-    -webkit-transform: scale3d(1.25, 0.75, 1);
-    transform: scale3d(1.25, 0.75, 1);
+    10%, 20% {
+    -webkit-transform: scale3d(.9, .9, .9) rotate3d(0, 0, 1, -3deg);
+    transform: scale3d(.9, .9, .9) rotate3d(0, 0, 1, -3deg);
     }
-    40% {
-    -webkit-transform: scale3d(0.75, 1.25, 1);
-    transform: scale3d(0.75, 1.25, 1);
+    30%, 50%, 70%, 90% {
+    -webkit-transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, 3deg);
+    transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, 3deg);
     }
-    50% {
-    -webkit-transform: scale3d(1.15, 0.85, 1);
-    transform: scale3d(1.15, 0.85, 1);
-    }
-    65% {
-    -webkit-transform: scale3d(.95, 1.05, 1);
-    transform: scale3d(.95, 1.05, 1);
-    }
-    75% {
-    -webkit-transform: scale3d(1.05, .95, 1);
-    transform: scale3d(1.05, .95, 1);
+    40%, 60%, 80% {
+    -webkit-transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, -3deg);
+    transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, -3deg);
     }
     100% {
     -webkit-transform: scale3d(1, 1, 1);
     transform: scale3d(1, 1, 1);
     }
     } 
-
 
 
 
@@ -321,13 +314,13 @@ margin-right: auto;
 -webkit-animation-duration: 3s;
 -webkit-transform-origin: top center;
 transform-origin: top center;
--webkit-animation-name: rubberBand;
- animation-name:rubberBand;
+-webkit-animation-name: tada;
+ animation-name:tada;
 }
 
 #prueba {
-  -moz-animation-duration: 3s ;
-  -webkit-animation-duration: 3s;
+  -moz-animation-duration: 2s ;
+  -webkit-animation-duration: 2s;
   -webkit-transform-origin: top center;
   transform-origin: top center;
   -webkit-animation-name: bounceInLeft;
@@ -336,8 +329,8 @@ transform-origin: top center;
    color: #fff;
   }
 #prueba2{
-  -moz-animation-duration: 5s ;
-  -webkit-animation-duration: 5s;
+  -moz-animation-duration: 4s ;
+  -webkit-animation-duration: 4s;
   -webkit-transform-origin: top center;
   transform-origin: top center;
   -webkit-animation-name: bounceInLeft;
@@ -348,8 +341,8 @@ transform-origin: top center;
 }
 
  #prueba3{
-  -moz-animation-duration: 5s ;
-  -webkit-animation-duration: 5s;
+  -moz-animation-duration: 3s ;
+  -webkit-animation-duration: 3s;
   -webkit-transform-origin: top center;
   transform-origin: top center;
   -webkit-animation-name: bounceInDown;

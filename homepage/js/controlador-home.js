@@ -35,7 +35,7 @@ $("#guardar").click(function () {
     var myCode = editor.getSession().getValue();
     var nombre = $("#txt-archivo").val();
     var value = $("#lenguaje").val();
-
+    cargarArchivos();
     $.ajax({
         url: "/ingresar-archivo",
         method: "GET",
@@ -45,30 +45,33 @@ $("#guardar").click(function () {
            
         }
     });
+    
 
 
 });
 
 function cargarArchivos(){
-    
-	
-}
-
-$(document).ready(function(){
-	console.log("El DOM ha sido cargado");
     $.ajax({
 		url:"/obtener-archivos",
 		dataType:"json",
 		method:"GET",
 		success:function(respuesta){
-            console.log(respuesta);
-            $("#archivo").append(` <li class="nav-item">
-            <a class="nav-link pl-0" href="#">
-                <i class="fa fa-book fa-fw"></i>
-                <span class="">${respuesta[i].nombre_archivo}</span>
-            </a>
-        </li>`);
+          $("#prueba").html("");
+            for (var i=0; i< respuesta.length; i++){
+               
+				$('#prueba').append(' <li> <a href="#">'+ respuesta[i].nombre_archivo + '.'+ respuesta[i].extension +'</a> </li> ' );
+            }	
+            
+
+            
 			
 		}
     });
+	
+}
+
+$(document).ready(function(){
+	console.log("El DOM ha sido cargado");
+   cargarArchivos();
 });
+

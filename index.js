@@ -110,7 +110,7 @@ app.get("/ingresar-archivo",function(peticion, respuesta){
 
 app.get("/obtener-archivos",function(peticion, respuesta){
     var conexion = mysql.createConnection(credenciales);
-    conexion.query("SELECT nombre_archivo FROM tbl_archivo WHERE id_usuario=?",
+    conexion.query("SELECT nombre_archivo,extension FROM tbl_archivo WHERE id_usuario=?",
     [peticion.session.codigo],
 		function(error, informacion, campos){
         respuesta.send(informacion);
